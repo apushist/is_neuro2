@@ -18,7 +18,7 @@ namespace AForge.WindowsForms
 
 		public StudentNetwork(SamplesSet data)
 		{
-			int[] structure = { 588, 400, 150, 10 };
+			int[] structure = { 588, 300, 150, 10 };
 
 			this.structure = structure;
 			neurons = new double[structure.Length][];
@@ -150,7 +150,7 @@ namespace AForge.WindowsForms
 
 		public override void SaveToBin()
 		{
-			using (var writer = new BinaryWriter(File.Open(DataLoader.GetProjectRoot() + "\\networks\\studentNet.bin", FileMode.Create)))
+			using (var writer = new BinaryWriter(File.Open(DataLoader.GetProjectRoot() + "\\networks\\studentNetF01.bin", FileMode.Create)))
 			{
 				writer.Write(structure.Length);
 				foreach (var layerSize in structure)
@@ -188,7 +188,7 @@ namespace AForge.WindowsForms
 
 		public override void LoadFromBin()
 		{
-			using (var reader = new BinaryReader(File.Open(DataLoader.GetProjectRoot() + "\\networks\\studentNet0.bin", FileMode.Open)))
+			using (var reader = new BinaryReader(File.Open(DataLoader.GetProjectRoot() + "\\networks\\studentNetF01.bin", FileMode.Open)))
 			{
 				int structureLength = reader.ReadInt32();
 				structure = new int[structureLength];
